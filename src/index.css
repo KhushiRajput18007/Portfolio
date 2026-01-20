@@ -6,162 +6,177 @@
 
 @layer base {
   :root {
- 
-    --background: 43 51% 94%; 
-    --foreground: 30 25% 20%; 
+    /* 
+      Coffee Shop / Organic Theme 2.0
+      Inspiration: SlidesMania Coffee Template
+    */
 
-    --card: 43 51% 94%;
-    --card-foreground: 30 25% 20%;
+    /* Background: Warm Paper / Cream */
+    --background: 36 30% 94%;
+    /* #F6F3F0 */
+    --foreground: 20 40% 20%;
+    /* #472D1E - Deep Espresso */
 
-    --popover: 43 51% 94%;
-    --popover-foreground: 30 25% 20%;
+    /* Card: Slightly warmer cream */
+    --card: 36 30% 96%;
+    --card-foreground: 20 40% 20%;
 
-    --primary: 28 39% 44%; 
-    --primary-foreground: 43 51% 94%;
+    /* Popover */
+    --popover: 36 30% 96%;
+    --popover-foreground: 20 40% 20%;
 
-    --secondary: 54 57% 91%; 
-    --secondary-foreground: 30 25% 20%;
+    /* Primary: Mocha / Dark Roast */
+    --primary: 25 50% 35%;
+    /* #864628 - Warm Roast */
+    --primary-foreground: 36 30% 96%;
 
-    --muted: 75 39% 84%; 
-    --muted-foreground: 30 25% 55%;
+    /* Secondary: Latte / Biscuit */
+    --secondary: 32 40% 85%;
+    /* #E3D5CA */
+    --secondary-foreground: 25 50% 35%;
 
-    --accent: 87 22% 72%; 
-    --accent-foreground: 30 25% 20%;
+    /* Muted */
+    --muted: 32 20% 90%;
+    --muted-foreground: 25 10% 45%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Accent: Caramel / Gold */
+    --accent: 38 60% 70%;
+    /* #DDB880 */
+    --accent-foreground: 25 50% 35%;
 
-    --border: 75 39% 84%;
-    --input: 75 39% 84%;
-    --ring: 28 39% 44%;
+    /* Destructive */
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 98%;
 
-    --radius: 1rem;
+    /* Borders */
+    --border: 25 20% 82%;
+    --input: 25 20% 82%;
+    --ring: 25 50% 35%;
 
- 
-    --gradient-hero: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--accent)));
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted)));
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
-    
-    --shadow-soft: 0 10px 30px -10px hsl(var(--primary) / 0.2);
-    --shadow-card: 0 4px 20px -4px hsl(var(--primary) / 0.1);
-    
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --radius: 1.5rem;
+    /* More organic rounding */
 
-    --sidebar-background: 0 0% 98%;
+    /* Fonts */
+    --font-heading: 'Patrick Hand', cursive;
+    --font-body: 'Outfit', sans-serif;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Custom Gradients */
+    --gradient-hero: linear-gradient(180deg, #F6F3F0 0%, #EFEBE5 100%);
+    --gradient-card: linear-gradient(145deg, #FFFCF9, #F5F0EB);
+    --gradient-primary: linear-gradient(135deg, #8B5E3C, #6D4C41);
 
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Soft Shadows */
+    --shadow-soft: 4px 4px 20px -5px rgba(71, 45, 30, 0.1);
+    --shadow-card: 8px 8px 30px -10px rgba(71, 45, 30, 0.15);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark Roast Mode */
+    --background: 25 25% 15%;
+    /* Dark Espresso */
+    --foreground: 36 20% 90%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 25 25% 18%;
+    --card-foreground: 36 20% 90%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 25 25% 15%;
+    --popover-foreground: 36 20% 90%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 38 50% 65%;
+    /* Caramel Light */
+    --primary-foreground: 25 25% 15%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 25 20% 25%;
+    --secondary-foreground: 36 20% 90%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 25 20% 25%;
+    --muted-foreground: 36 10% 70%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 38 50% 65%;
+    --accent-foreground: 25 25% 15%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 25 20% 25%;
+    --input: 25 20% 25%;
+    --ring: 38 50% 65%;
   }
 }
 
 @layer base {
   * {
     @apply border-border;
+    cursor: none !important;
+    /* Hide default cursor */
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased font-body relative overflow-x-hidden;
+    background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+    background-repeat: repeat;
   }
 
-  
+
   @keyframes float {
-    0%, 100% { 
-      transform: translateY(0px) rotate(0deg) scale(1); 
+
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg) scale(1);
     }
-    33% { 
-      transform: translateY(-12px) rotate(2deg) scale(1.05); 
+
+    33% {
+      transform: translateY(-12px) rotate(2deg) scale(1.05);
     }
-    66% { 
-      transform: translateY(-6px) rotate(-1deg) scale(1.02); 
+
+    66% {
+      transform: translateY(-6px) rotate(-1deg) scale(1.02);
     }
   }
 
   @keyframes fade-in {
-    from { 
-      opacity: 0; 
-      transform: translateY(30px) scale(0.95); 
+    from {
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
     }
-    to { 
-      opacity: 1; 
-      transform: translateY(0) scale(1); 
+
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
     }
   }
 
   @keyframes slide-up {
-    from { 
-      opacity: 0; 
-      transform: translateY(50px) scale(0.9); 
+    from {
+      opacity: 0;
+      transform: translateY(50px) scale(0.9);
     }
-    to { 
-      opacity: 1; 
-      transform: translateY(0) scale(1); 
+
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
     }
   }
 
   @keyframes pulse-glow {
-    0%, 100% { 
+
+    0%,
+    100% {
       box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
     }
-    50% { 
+
+    50% {
       box-shadow: 0 0 40px hsl(var(--primary) / 0.5);
     }
   }
 
   @keyframes shimmer {
-    0% { 
-      background-position: -200% 0; 
+    0% {
+      background-position: -200% 0;
     }
-    100% { 
-      background-position: 200% 0; 
+
+    100% {
+      background-position: 200% 0;
     }
   }
 
@@ -182,12 +197,10 @@
   }
 
   .animate-shimmer {
-    background: linear-gradient(
-      90deg,
-      transparent,
-      hsl(var(--primary) / 0.1),
-      transparent
-    );
+    background: linear-gradient(90deg,
+        transparent,
+        hsl(var(--primary) / 0.1),
+        transparent);
     background-size: 200% 100%;
     animation: shimmer 3s ease-in-out infinite;
   }

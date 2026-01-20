@@ -31,13 +31,12 @@ const Navigation = () => {
   };
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-background/95 backdrop-blur-md shadow-card' : 'bg-transparent'
-    }`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-background/80 backdrop-blur-lg shadow-sm py-2' : 'bg-transparent py-4'
+      }`}>
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="text-2xl font-bold text-primary">
+          <div className="text-2xl font-bold text-primary font-heading tracking-tight cursor-pointer" onClick={() => scrollToSection('#home')}>
             KR
           </div>
 
@@ -47,16 +46,17 @@ const Navigation = () => {
               <button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+                className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium text-sm tracking-wide relative group"
               >
                 {item.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary/50 transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
-            <Button 
+            <Button
               onClick={() => scrollToSection('#contact')}
-              className="bg-gradient-primary text-primary-foreground"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6"
             >
-              Download Resume 
+              Resume
             </Button>
           </div>
 
@@ -66,7 +66,7 @@ const Navigation = () => {
               variant="ghost"
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
-              className="text-foreground"
+              className="text-primary hover:bg-primary/10"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </Button>
@@ -75,20 +75,20 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden animate-fade-in">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-background/95 backdrop-blur-md rounded-lg mt-2 shadow-card">
+          <div className="md:hidden animate-fade-in absolute top-full left-0 w-full bg-background/95 backdrop-blur-md shadow-lg border-t border-primary/10">
+            <div className="flex flex-col p-6 space-y-4">
               {navItems.map((item) => (
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-3 py-2 text-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors duration-200"
+                  className="w-full text-left py-3 text-lg font-medium text-foreground hover:text-primary border-b border-dashed border-primary/20 last:border-0 transition-colors"
                 >
                   {item.label}
                 </button>
               ))}
-              <Button 
+              <Button
                 onClick={() => scrollToSection('#contact')}
-                className="w-full mt-2 bg-gradient-primary text-primary-foreground"
+                className="w-full mt-4 bg-primary text-primary-foreground rounded-full"
               >
                 Download Resume
               </Button>

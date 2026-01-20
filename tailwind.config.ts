@@ -65,8 +65,9 @@ const config: Config = {
         smooth: "var(--transition-smooth)",
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
-        heading: ["Poppins", "sans-serif"],
+        sans: ["var(--font-body)", "sans-serif"],
+        heading: ["var(--font-heading)", "cursive"],
+        body: ["var(--font-body)", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

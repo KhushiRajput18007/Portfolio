@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { Mail, Phone, Github, Linkedin, Twitter, Instagram, Send, MapPin } from 'lucide-react';
+import { Mail, Phone, Github, Linkedin, Send, MapPin, Coffee } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
@@ -18,19 +17,10 @@ const Contact = () => {
   const contactInfo = [
     { icon: Mail, label: 'Email', value: 'khushi.rajput.cg@gmail.com', href: 'mailto:khushi.rajput.cg@gmail.com' },
     { icon: Phone, label: 'Phone', value: '+91 9638647776', href: 'tel:+919638647776' },
-    { icon: MapPin, label: 'Location', value: 'Gujarat, India', href: '#' },
-  ];
-
-  const socialLinks = [
-    { icon: Github, label: 'GitHub', href: 'https://github.com/KhushiRajput18007', username: '@KhushiRajput18007' },
-    { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com/in/khushi-rajput', username: '@khushi-rajput' },
-    { icon: Twitter, label: 'Twitter', href: 'https://twitter.com/Khushi1812007', username: '@Khushi1812007' },
-    { icon: Instagram, label: 'Instagram', href: 'https://instagram.com/sunshinee_018007', username: '@sunshinee_018007' },
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: "Please fill in all fields",
@@ -39,10 +29,7 @@ const Contact = () => {
       });
       return;
     }
-
     setIsSubmitting(true);
-    
-    // Simulate form submission
     setTimeout(() => {
       toast({
         title: "Message sent successfully!",
@@ -54,175 +41,112 @@ const Contact = () => {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   return (
-    <section id="contact" className="py-20">
-      <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
+    <section id="contact" className="py-24 bg-background relative overflow-hidden">
+      {/* Footer-like organic wave at bottom can be added via SVG if needed, but for now specific blob */}
+      <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Get In <span className="text-primary">Touch</span>
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 font-heading">
+              Let's <span className="text-primary italic">Connect</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Let's collaborate and bring your ideas to life. I'm always open to discussing new opportunities.
+            <p className="text-xl text-muted-foreground max-w-xl mx-auto">
+              Grab a virtual coffee with me. I'm always open to discussing new projects, creative ideas or opportunities.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Information */}
-            <div className="space-y-8 animate-slide-up">
-              <div>
-                <h3 className="text-2xl font-semibold text-foreground mb-6">
-                  Let's Connect
-                </h3>
-                <p className="text-muted-foreground leading-relaxed mb-8">
-                  I'm currently available for freelance work and full-time opportunities. 
-                  Whether you have a project in mind or just want to chat about technology, 
-                  feel free to reach out!
-                </p>
-              </div>
+          <div className="grid lg:grid-cols-5 gap-12 bg-white/50 backdrop-blur-md border border-white/60 rounded-[3rem] p-8 lg:p-12 shadow-soft">
 
-              {/* Contact Details */}
-              <div className="space-y-4">
+            {/* Contact Info Side */}
+            <div className="lg:col-span-2 space-y-8 flex flex-col justify-center">
+              <div className="space-y-6">
+                <h3 className="text-2xl font-bold text-foreground">Contact Details</h3>
                 {contactInfo.map((contact) => (
                   <a
                     key={contact.label}
                     href={contact.href}
-                    className="flex items-center p-4 bg-gradient-card rounded-lg hover:shadow-card transition-all duration-300 hover:scale-105 group"
+                    className="flex items-center gap-4 p-4 bg-white/60 rounded-2xl hover:bg-white hover:shadow-md transition-all duration-300 group"
                   >
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4 group-hover:bg-primary/20 transition-colors">
-                      <contact.icon className="w-6 h-6 text-primary" />
+                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                      <contact.icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="font-medium text-foreground">{contact.label}</p>
-                      <p className="text-muted-foreground">{contact.value}</p>
+                      <p className="text-xs uppercase tracking-wider text-muted-foreground">{contact.label}</p>
+                      <p className="font-medium text-foreground">{contact.value}</p>
                     </div>
                   </a>
                 ))}
               </div>
 
-              {/* Social Links */}
-              <div>
-                <h4 className="text-lg font-semibold text-foreground mb-4">
-                  Follow Me On
-                </h4>
-                <div className="grid grid-cols-2 gap-4">
-                  {socialLinks.map((social) => (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center p-3 bg-gradient-card rounded-lg hover:shadow-card transition-all duration-300 hover:scale-105 group"
-                    >
-                      <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-3 group-hover:bg-primary/20 transition-colors">
-                        <social.icon className="w-5 h-5 text-primary" />
-                      </div>
-                      <div>
-                        <p className="font-medium text-foreground text-sm">{social.label}</p>
-                        <p className="text-muted-foreground text-xs">{social.username}</p>
-                      </div>
-                    </a>
-                  ))}
+              <div className="pt-8 border-t border-dashed border-primary/20">
+                <h4 className="text-lg font-semibold mb-4">Social Profiles</h4>
+                <div className="flex gap-4">
+                  <a href="https://github.com/KhushiRajput18007" target="_blank" className="w-10 h-10 bg-secondary/50 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-all"><Github className="w-5 h-5" /></a>
+                  <a href="https://linkedin.com/in/khushi-rajput" target="_blank" className="w-10 h-10 bg-secondary/50 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-all"><Linkedin className="w-5 h-5" /></a>
                 </div>
               </div>
             </div>
 
-            {/* Contact Form */}
-            <Card className="bg-gradient-card shadow-soft animate-slide-up">
-              <CardHeader>
-                <CardTitle className="text-2xl text-foreground">Send Message</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
+            {/* Separator Line */}
+            <div className="hidden lg:block w-px bg-gradient-to-b from-transparent via-primary/20 to-transparent"></div>
+
+            {/* Form Side */}
+            <div className="lg:col-span-2 space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-muted-foreground ml-1">Name</label>
                     <Input
                       name="name"
-                      placeholder="Your Name"
+                      placeholder="John Doe"
                       value={formData.name}
                       onChange={handleChange}
-                      className="bg-background border-border focus:border-primary"
+                      className="rounded-xl border-primary/10 bg-white/50 focus:bg-white transition-colors h-12"
                       required
                     />
                   </div>
-                  <div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-muted-foreground ml-1">Email</label>
                     <Input
                       name="email"
                       type="email"
-                      placeholder="Your Email"
+                      placeholder="john@example.com"
                       value={formData.email}
                       onChange={handleChange}
-                      className="bg-background border-border focus:border-primary"
+                      className="rounded-xl border-primary/10 bg-white/50 focus:bg-white transition-colors h-12"
                       required
                     />
                   </div>
-                  <div>
-                    <Textarea
-                      name="message"
-                      placeholder="Your Message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      rows={5}
-                      className="bg-background border-border focus:border-primary resize-none"
-                      required
-                    />
-                  </div>
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-gradient-primary text-primary-foreground hover:scale-105 transition-transform"
-                  >
-                    {isSubmitting ? (
-                      <div className="flex items-center">
-                        <div className="w-4 h-4 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin mr-2"></div>
-                        Sending...
-                      </div>
-                    ) : (
-                      <>
-                        <Send className="w-4 h-4 mr-2" />
-                        Send Message
-                      </>
-                    )}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </div>
+                </div>
 
-          {/* Call to Action */}
-          <div className="text-center mt-16 p-8 bg-gradient-card rounded-2xl shadow-soft animate-fade-in">
-            <h3 className="text-2xl font-semibold text-foreground mb-4">
-              Ready to start your project?
-            </h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              I'm excited to help bring your ideas to life. Let's discuss how we can work together 
-              to create something amazing.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg"
-                className="bg-gradient-primary text-primary-foreground"
-                onClick={() => window.open('mailto:khushi.rajput.cg@gmail.com', '_blank')}
-              >
-                <Mail className="w-4 h-4 mr-2" />
-                Email Me
-              </Button>
-              <Button 
-                size="lg"
-                variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                onClick={() => window.open('tel:+919638647776', '_blank')}
-              >
-                <Phone className="w-4 h-4 mr-2" />
-                Call Me
-              </Button>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-muted-foreground ml-1">Message</label>
+                  <Textarea
+                    name="message"
+                    placeholder="Tell me about your project..."
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={4}
+                    className="rounded-xl border-primary/10 bg-white/50 focus:bg-white transition-colors resize-none"
+                    required
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground h-12 shadow-lg hover:shadow-xl transition-all"
+                >
+                  {isSubmitting ? 'Sending...' : <span className="flex items-center gap-2"><Send className="w-4 h-4" /> Send Message</span>}
+                </Button>
+              </form>
             </div>
+
           </div>
         </div>
       </div>
